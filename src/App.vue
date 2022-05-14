@@ -1,11 +1,12 @@
 <template>
   <div id="nav">
     <router-link to="/" v-if="userLogin">Home</router-link>
+    <router-link v-if="!userLogin" :to="{name:'Register'}">Register</router-link>
+    <router-link v-if="!userLogin" :to="{name:'Login'}"> | Login</router-link>
     <router-link v-if="userLogin && !adminLogin" to="/tasks"> | Tasks</router-link>
     <router-link v-if="adminLogin" :to="{name:'ManageTasks'}"> | Tasks</router-link>
     <router-link v-if="adminLogin" :to="{name:'ManageDeletedTasks'}"> | Deleted Tasks</router-link>
     <router-link v-if="adminLogin" :to="{name:'ManageUsers'}"> | Users</router-link>
-    <router-link v-if="!userLogin" :to="{name:'Login'}"> | Login</router-link>
     <a v-if="userLogin || adminLogin" @click="logout" class="btn"> | Logout</a>
   </div>
   <router-view/>

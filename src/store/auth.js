@@ -55,8 +55,14 @@ const auth = {
                     console.log(error)
                 });
         },
-        register(form) {
-            return Api().post("/register", form);
+        async register({commit},form) {
+            await Api().post("/register", form)
+                .then((res) => {
+                    commit('setToken', res.data.result);
+                })
+                .catch(function (error) {
+                    console.log(error)
+                });
         },
 
 

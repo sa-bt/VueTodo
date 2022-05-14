@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Task from "../views/Task";
 import User from "../views/User";
 import Login from "../views/Login";
+import Register from "../views/Register";
 import store from "../store";
 import ManageUserIndex from "../views/manage/user/Index";
 import ManageTaskIndex from "../views/manage/task/Index";
@@ -66,6 +67,12 @@ const routes = [
         path: '/login',
         name: 'Login',
         component: Login,
+        beforeEnter: ifNotAuthenticated,
+    },
+    {
+        path: '/register',
+        name: 'Register',
+        component: Register,
         beforeEnter: ifNotAuthenticated,
     },
 
