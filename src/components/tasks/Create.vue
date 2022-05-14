@@ -57,6 +57,8 @@ export default {
           "description": description.value
         })
         loading.value=false;
+        title.value='';
+        description.value='';
       }
     }
 
